@@ -15,9 +15,9 @@
    <left>
       <VBox id="sidebar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button id="tabContainer" contentDisplay="TOP" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="204.0" text="Monedas" textAlignment="RIGHT" textOverrun="CLIP" />
-            <Button id="tabContainer" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="208.0" text="Masa" />
-            <Button id="tabContainer" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="208.0" text="Logitud" />
+            <Button id="tabContainer" contentDisplay="TOP" layoutX="14.0" layoutY="14.0" onAction="#setConversorMonedas" prefHeight="40.0" prefWidth="204.0" text="Monedas" textAlignment="RIGHT" textOverrun="CLIP" />
+            <Button id="tabContainer" layoutX="14.0" layoutY="14.0" onAction="#setConversorPesos" prefHeight="40.0" prefWidth="208.0" text="Peso" />
+            <Button id="tabContainer" layoutX="14.0" layoutY="14.0" onAction="#setConversorLongitud" prefHeight="40.0" prefWidth="208.0" text="Logitud" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -32,10 +32,13 @@
                   <Font name="Arial" size="16.0" />
                </font>
             </Text>
-            <TextField id="amountInput" prefHeight="40.0" prefWidth="360.0" promptText="0">
+            <TextField id="amountInput" fx:id="inputMonto" onMouseClicked="#clearInput" prefHeight="40.0" prefWidth="360.0" promptText="0" text="1">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
             </TextField>
             <HBox prefHeight="40.0" prefWidth="380.0" spacing="20.0">
                <children>
@@ -43,14 +46,14 @@
                   <ComboBox fx:id="unidadA" prefHeight="40.0" prefWidth="217.0" promptText="MX" />
                </children>
             </HBox>
-            <Button id="buttonConvert" layoutX="24.0" layoutY="175.0" mnemonicParsing="false" onAction="#convertir" prefHeight="41.0" prefWidth="388.0" text="Convertir">
+            <Button id="buttonConvert" fx:id="btnConvertir" layoutX="24.0" layoutY="175.0" mnemonicParsing="false" onAction="#convertir" prefHeight="41.0" prefWidth="388.0" text="Convertir">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
             <Pane layoutX="26.0" layoutY="231.0" prefHeight="45.0" prefWidth="361.0" style="-fx-background-color: #fff;">
                <children>
-                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 USD = 18.33 MX">
+                  <Text fx:id="textResultado" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 USD = 18.33 MX">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
