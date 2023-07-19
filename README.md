@@ -15,7 +15,7 @@
 
 ## Vista previa
 
-![Encriptador de texto](src/convertidoralura/resources/preview.jpg)
+![Encriptador de texto](src/resources/preview.png)
 
 ### Redes sociales
 
